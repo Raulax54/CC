@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz cumpleaños 🎉</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #f5b7b1, #f9e79f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', serif;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            max-width: 500px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: aparecer 1.5s ease;
+        }
+
+        h1 {
+            color: #d35400;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Feliz cumpleaños 🎂</h1>
+    <p>
+        Hoy no es un día cualquiera.  
+        Es el día en el que nació alguien que hace el mundo un poco más bonito.
+    </p>
+    <p>
+        Gracias por ser como eres, por las risas, por los momentos
+        y por estar siempre ahí.
+    </p>
+    <p>
+        💖
+    </p>
+    <p>
+        — Raúl
+    </p>
+</div>
+
+</body>
+</html>
