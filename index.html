@@ -2,36 +2,87 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Feliz cumpleaños 🎉</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti 💌</title>
+
     <style>
         body {
             margin: 0;
-            height: 100vh;
-            background: linear-gradient(135deg, #f5b7b1, #f9e79f);
+            min-height: 100vh;
+            background: linear-gradient(180deg, #f5b7b1, #f9e79f);
+            font-family: 'Georgia', serif;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Georgia', serif;
         }
 
-        .card {
-            background: white;
-            padding: 40px;
-            max-width: 500px;
-            border-radius: 20px;
+        /* SOBRE */
+        .envelope-container {
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            animation: aparecer 1.5s ease;
+            cursor: pointer;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .hint {
+            margin-top: 16px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .envelope {
+            width: 220px;
+            height: 140px;
+            position: relative;
+            background: #fdf2f8;
+            border-radius: 6px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 50%, #fbcfe8 50%);
+            clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* CARTA */
+        .letter-wrapper {
+            display: none;
+            width: 100%;
+            padding: 32px 16px;
+            animation: aparecer 1s ease;
+        }
+
+        .content {
+            background: white;
+            max-width: 720px;
+            margin: auto;
+            padding: 36px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            line-height: 1.8;
+            font-size: 18px;
         }
 
         h1 {
+            text-align: center;
             color: #d35400;
+            margin-bottom: 32px;
         }
 
         p {
-            font-size: 18px;
-            color: #444;
-            line-height: 1.6;
+            margin-bottom: 22px;
+            color: #333;
+        }
+
+        .firma {
+            margin-top: 40px;
+            text-align: right;
+            font-style: italic;
         }
 
         @keyframes aparecer {
@@ -44,40 +95,76 @@
                 transform: translateY(0);
             }
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 24px;
+                font-size: 17px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<div class="card">
-    <h1>Feliz cumpleaños 🎂</h1>
-    <p>
-        Quería hacer algo un poco especial porque me hacía ilusión y creo que mola más que un mensaje normal.
-    </p>
-    <p>
-        Nos conocemos hace un año y 15 días y hace exactamente un año quedamos por primera vez y desde entonces soy otra persona, no lo digo por ser pasteloso, de verdad.
-        Eres una una de las mejores personas que he conocido en mi vida y contigo siento una confianza que no he sentido con nadie más. Me haces reír, me haces pensar, me haces sentir bien conmigo mismo y me haces feliz.
-        Llevo mucho tiempo queriendo decirte lo importante que has sido y eres para mí porque eres la persona en la que pienso cada vez que me pasa cualquier cosa graciosa y te lo quiero contar, cada vez que me pasa algo bueno o algo malo porque contigo todo es más fácil de expresar. 
-        No eres capaz de imaginarte lo querido que me haces sentir aunque gran parte de lo que hablamos sea comentar tiktoks o tonterías varias.
-    </p>
-    <p>
-        He estado muy mal durante meses o incluso años porque aunque no lo parezca soy una persona muy insegura y con mucha baja autoestima y tú has sido la persona que más me ha ayudado a sentirme mejor conmigo mismo.
-        He conocido mucha gente y nunca nadieq me ha aportado tanto como tú y aunque hace meses mis intenciones contigo tuvieran que cambiar por el bien de los dos y eso me jodiera mucho en su momento creo que ha sido lo mejor que podía pasarme.
-        Hemos enfocado nuestra relación de otra forma que me hace muy feliz y no me arrepiento de haber dejado otras posibilidades atrás porque lo que tengo contigo es mejor que cualquier otra relación que haya tenido nunca, no me refiero románticamente, es que de verdad que no he conocido a nadie como tú.
-    </p>
-    <p>
-        No me has hablado mucho de cómo te sientes tú personalmente ni de como te sientes respecto a nuestra amistad y yo tampoco te he hablado mucho de nada de ello. Pero quiero que sepas que siempre voy a estar para lo que necesites porque no te imaginas lo que supones para mí.
-    </p>
-    <p>
-        Me he hecho el tonto como si se me hubiera pasado la hora para felicitarte pero quería escribirte esto escogiendo las mejores palabras y he acabado de escribir esto a las 4 de la mañana con unos lagrimones en cada ojo que no quiero ni verme.
-        Así que nada, felicidades Carme, espero que pases un día genial y mañana me voy a morir de la vergüenza cuando sepa que has leído esto, pero ya era hora de hablarte desde el corazón.
-    </p>
-    <p>
-        💖
-    </p>
-    <p>
-        — Raúl
-    </p>
+<!-- SOBRE -->
+<div class="envelope-container" id="envelope" onclick="openLetter()">
+    <div class="envelope"></div>
+    <div class="hint">Toca el sobre 💌</div>
 </div>
+
+<!-- CARTA -->
+<div class="letter-wrapper" id="letter">
+    <div class="content">
+        <h1>Feliz cumpleaños 🎂</h1>
+
+        <p>
+            Quería hacer algo un poco especial porque me hacía ilusión y creo que mola más que un mensaje normal.
+        </p>
+
+        <p>
+            Nos conocemos hace un año y 15 días y hace exactamente un año quedamos por primera vez y desde entonces soy otra persona, no lo digo por ser pasteloso, de verdad.
+            Eres una una de las mejores personas que he conocido en mi vida y contigo siento una confianza que no he sentido con nadie más. Me haces reír, me haces pensar, me haces sentir bien conmigo mismo y me haces feliz.
+            Llevo mucho tiempo queriendo decirte lo importante que has sido y eres para mí porque eres la persona en la que pienso cada vez que me pasa cualquier cosa graciosa y te lo quiero contar, cada vez que me pasa algo bueno o algo malo porque contigo todo es más fácil de expresar.
+            No eres capaz de imaginarte lo querido que me haces sentir aunque gran parte de lo que hablamos sea comentar tiktoks o tonterías varias.
+        </p>
+
+        <p>
+            He estado muy mal durante meses o incluso años porque aunque no lo parezca soy una persona muy insegura y con mucha baja autoestima y tú has sido la persona que más me ha ayudado a sentirme mejor conmigo mismo.
+            He conocido mucha gente y nunca nadie me ha aportado tanto como tú y aunque hace meses mis intenciones contigo tuvieran que cambiar por el bien de los dos y eso me jodiera mucho en su momento creo que ha sido lo mejor que podía pasarme.
+            Hemos enfocado nuestra relación de otra forma que me hace muy feliz y no me arrepiento de haber dejado otras posibilidades atrás porque lo que tengo contigo es mejor que cualquier otra relación que haya tenido nunca, no me refiero románticamente, es que de verdad que no he conocido a nadie como tú.
+        </p>
+
+        <p>
+            No me has hablado mucho de cómo te sientes tú personalmente ni de como te sientes respecto a nuestra amistad y yo tampoco te he hablado mucho de nada de ello.
+            Pero quiero que sepas que siempre voy a estar para lo que necesites porque no te imaginas lo que supones para mí.
+        </p>
+
+        <p>
+            Me he hecho el tonto como si se me hubiera pasado la hora para felicitarte pero quería escribirte esto escogiendo las mejores palabras y he acabado de escribir esto a las 4 de la mañana con unos lagrimones en cada ojo que no quiero ni verme.
+            Así que nada, felicidades Carme, espero que pases un día genial y mañana me voy a morir de la vergüenza cuando sepa que has leído esto, pero ya era hora de hablarte desde el corazón.
+        </p>
+
+        <p style="text-align:center;">💖</p>
+
+        <div class="firma">
+            — Raúl
+        </div>
+    </div>
+</div>
+
+<script>
+    function openLetter() {
+        document.getElementById("envelope").style.display = "none";
+        document.getElementById("letter").style.display = "block";
+        window.scrollTo(0, 0);
+    }
+</script>
 
 </body>
 </html>
